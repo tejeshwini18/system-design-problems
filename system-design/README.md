@@ -14,6 +14,13 @@ See [System Design Template](SYSTEM_DESIGN_TEMPLATE.md) for the document structu
 
 Diagrams use **Mermaid** (renders in GitHub/IDE) and optionally **Eraser** (paste code into [Eraser.io](https://app.eraser.io)).
 
+## Interview Preparation Add-ons
+
+- [System Design Approach Review](INTERVIEW_APPROACH_REVIEW.md) — assessment of how this repo aligns with current industry and interview expectations.
+- [Interview-Ready Transcripts](INTERVIEW_READY_TRANSCRIPTS.md) — improved, problem-specific speaking scripts for each problem statement.
+- [System Design Glossary](SYSTEM_DESIGN_GLOSSARY.md) — important terms with practical examples.
+- [Interview Gap Implementation Tracker](INTERVIEW_GAP_IMPLEMENTATION.md) — concrete mapping of identified gaps to implemented fixes.
+
 ---
 
 ## Part 1: Common System Design Topics (1–17)
