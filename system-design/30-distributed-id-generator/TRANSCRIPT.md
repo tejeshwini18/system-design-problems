@@ -1,35 +1,11 @@
 # Interview Transcript — Distributed ID Generator
 
-**Interviewer:** Design this system.
+When I explain this in an interview, I start by framing the problem in plain language. I describe **Distributed ID Generator** as a scalable distributed system and confirm the v1 scope, expected user behavior, and non-functional targets such as latency, availability, and durability. Before drawing architecture, I align on realistic traffic assumptions so every decision is justified with capacity context rather than guesswork.
 
-**Candidate:** Sure—let me confirm scope for **Distributed ID Generator** (General system).
-- **v1 functional scope:** core create/read/update workflows.
-- **NFR targets:** p95 read < 200 ms, p95 write < 300 ms, 99.9% availability (99.95% for critical paths), multi-AZ durability.
-- **Scale assumption (starter):** ~1M DAU, 10x peak-to-average traffic, growth-ready partitioning.
+Next, I walk through the end-to-end flow from the user request to final response. I explain that the system first validates the request, then processes domain data like core domain entities, user actions, and state transitions, and finally returns the result through stable APIs. At the architecture level, I describe how components like API gateway, domain services, cache layer, persistent storage, and async workers collaborate on the read and write paths, and I call out where asynchronous processing is introduced to protect latency.
 
-## Back-of-envelope
-- Estimate peak read/write QPS separately; derive cache/DB sizing from split.
-- Estimate storage growth/day and hot/warm/cold retention strategy.
-- Define end-to-end latency budget per hop.
+After that, I shift to data and API design in human terms. I explain which entities are authoritative, where indexing or partitioning is needed, and how idempotency prevents duplicate outcomes during retries. I also clarify consistency expectations so the interviewer can see exactly where strong consistency is required and where eventual consistency is acceptable for scale.
 
-## HLD Walkthrough
-- **Core components:** api gateway, core service, cache, db, queue.
-- **Write path:** validate/authenticate → persist source of truth → publish async events.
-- **Read path:** serve from cache/read model → fallback to primary store.
-- **Hotspots:** hot partitions, queue lag, cross-region latency, fanout bursts.
+Then I cover reliability as a production scenario, not just theory. I describe dependency failures, retries with backoff and jitter, circuit breakers, dead-letter handling, and graceful degradation so critical user journeys continue to work. I pair this with security and operations: authentication/authorization, encryption, auditability, observability signals, SLO-based alerting, and rollback/DR posture with clear RTO/RPO goals.
 
-## LLD Deep Dive
-- **Key entities/data model:** users, resources, events.
-- **API contracts:** idempotency keys for non-idempotent writes; cursor pagination for reads.
-- **Concurrency:** optimistic locking by default; short-lived pessimistic locks for scarce resources.
-- **Consistency:** strong where correctness is critical; eventual where latency/scale dominates.
-
-## Reliability, Security, and Operations
-- Retries with backoff+jitter, circuit breaker, bulkheads; DLQ + replay for async failures.
-- AuthN/AuthZ, encryption in transit/at rest, secret rotation, audit logging for sensitive actions.
-- Golden signals + business KPIs + traces; SLO alerts; canary/rollback; DR with RTO/RPO targets.
-
-## Trade-offs and Close
-- **Primary trade-off:** consistency vs latency.
-- **Cost focus:** cache hit rate, storage tiering, and network egress/CDN costs.
-- **Close:** ship narrow v1, validate bottlenecks with telemetry, then scale x10/x100.
+Finally, I close with trade-offs and roadmap. For this design, I highlight bottlenecks such as consistency and latency trade-offs under growth, explain why the chosen approach is suitable for v1, and mention what I would evolve for x10 traffic. This keeps the transcript interview-friendly, technically grounded, and easy for a panel to evaluate across HLD and LLD depth.
