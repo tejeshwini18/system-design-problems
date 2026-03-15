@@ -16,10 +16,9 @@ Diagrams use **Mermaid** (renders in GitHub/IDE) and optionally **Eraser** (past
 
 ## Interview Preparation Add-ons
 
-- [System Design Approach Review](INTERVIEW_APPROACH_REVIEW.md) — assessment of how this repo aligns with current industry and interview expectations.
-- [Interview-Ready Transcripts](INTERVIEW_READY_TRANSCRIPTS.md) — improved, problem-specific speaking scripts for each problem statement.
+- **Per-module transcripts:** each problem folder now contains a `TRANSCRIPT.md` with an interview-ready script specific to that module.
 - [System Design Glossary](SYSTEM_DESIGN_GLOSSARY.md) — important terms with practical examples.
-- [Interview Gap Implementation Tracker](INTERVIEW_GAP_IMPLEMENTATION.md) — concrete mapping of identified gaps to implemented fixes.
+- [System Design Template](SYSTEM_DESIGN_TEMPLATE.md) — upgraded with mandatory interview-readiness sections (capacity, SLOs, reliability, security, observability, DR, cost, and trade-offs).
 
 ---
 

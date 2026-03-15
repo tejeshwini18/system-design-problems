@@ -89,3 +89,26 @@ Consumer (client)
 - **OFFSET_OUT_OF_RANGE:** Consumer auto.offset.reset: earliest or latest; or fail.
 - **REBALANCE_IN_PROGRESS:** Consumer stops current fetch; waits for new assignment; resumes.
 - **Duplicate produce (idempotent):** Producer uses PID and sequence; broker deduplicates; at-most-once per key in idempotent mode when combined with transactions.
+
+---
+
+## Interview-Readiness Enhancements
+
+### API and consistency
+- Mark idempotency requirements for mutation APIs.
+- Specify pagination/cursor strategy for list endpoints.
+- Clarify consistency guarantees per endpoint/workflow.
+
+### Data model and concurrency
+- Explicitly list partition key/index choices and why.
+- State optimistic vs pessimistic locking policy and conflict handling.
+- Define deduplication/idempotent-consumer strategy for async paths.
+
+### Reliability and operations
+- Add explicit failure scenarios with mitigations and degradation behavior.
+- Add monitoring/alert thresholds for critical flows and queue lag.
+- Document rollout and rollback steps for schema/API changes.
+
+### Validation checklist
+- Include unit + integration + load + failure-injection test cases for critical paths.
+

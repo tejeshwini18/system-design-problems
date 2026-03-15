@@ -64,3 +64,26 @@
 - **Deploy:** New ASG launch template version; rolling update (batch size 1 or 2); health check ensures new instances get traffic only when ready.
 - **DB failover:** RDS Multi-AZ automatic failover; app reconnects to new primary (same endpoint); brief write unavailability.
 - **Cache:** Redis cluster or replication; app reconnects on connection loss; optional lazy load on cold start.
+
+---
+
+## Interview-Readiness Enhancements
+
+### API and consistency
+- Mark idempotency requirements for mutation APIs.
+- Specify pagination/cursor strategy for list endpoints.
+- Clarify consistency guarantees per endpoint/workflow.
+
+### Data model and concurrency
+- Explicitly list partition key/index choices and why.
+- State optimistic vs pessimistic locking policy and conflict handling.
+- Define deduplication/idempotent-consumer strategy for async paths.
+
+### Reliability and operations
+- Add explicit failure scenarios with mitigations and degradation behavior.
+- Add monitoring/alert thresholds for critical flows and queue lag.
+- Document rollout and rollback steps for schema/API changes.
+
+### Validation checklist
+- Include unit + integration + load + failure-injection test cases for critical paths.
+
