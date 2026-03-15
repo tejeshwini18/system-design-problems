@@ -14,6 +14,12 @@ See [System Design Template](SYSTEM_DESIGN_TEMPLATE.md) for the document structu
 
 Diagrams use **Mermaid** (renders in GitHub/IDE) and optionally **Eraser** (paste code into [Eraser.io](https://app.eraser.io)).
 
+## Interview Preparation Add-ons
+
+- **Per-module transcripts:** each problem folder now contains a `TRANSCRIPT.md` with an interview-ready script specific to that module.
+- [System Design Glossary](SYSTEM_DESIGN_GLOSSARY.md) — important terms with practical examples.
+- [System Design Template](SYSTEM_DESIGN_TEMPLATE.md) — upgraded with mandatory interview-readiness sections (capacity, SLOs, reliability, security, observability, DR, cost, and trade-offs).
+
 ---
 
 ## Part 1: Common System Design Topics (1–17)

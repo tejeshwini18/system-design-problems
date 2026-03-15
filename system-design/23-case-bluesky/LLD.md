@@ -88,3 +88,26 @@ FeedGenerator
 - **PDS down:** Feed generator skips that user’s posts for this request; retry later; optional fallback cache.
 - **Invalid commit:** PDS rejects (400); client retries or shows error.
 - **Migration:** User points DID document to new PDS; clients and feed generators re-resolve; old PDS may redirect or serve read-only until migration complete.
+
+---
+
+## Interview-Readiness Enhancements
+
+### API and consistency
+- Mark idempotency requirements for mutation APIs.
+- Specify pagination/cursor strategy for list endpoints.
+- Clarify consistency guarantees per endpoint/workflow.
+
+### Data model and concurrency
+- Explicitly list partition key/index choices and why.
+- State optimistic vs pessimistic locking policy and conflict handling.
+- Define deduplication/idempotent-consumer strategy for async paths.
+
+### Reliability and operations
+- Add explicit failure scenarios with mitigations and degradation behavior.
+- Add monitoring/alert thresholds for critical flows and queue lag.
+- Document rollout and rollback steps for schema/API changes.
+
+### Validation checklist
+- Include unit + integration + load + failure-injection test cases for critical paths.
+

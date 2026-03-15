@@ -108,3 +108,26 @@ WebhookDispatcher
 - Duplicate idempotency key with different body: 422 or return existing (same key = same logical request).
 - Acquirer timeout: keep transaction pending; async job to poll acquirer status or retry; eventually mark failed and webhook.
 - Refund amount > captured: 400.
+
+---
+
+## Interview-Readiness Enhancements
+
+### API and consistency
+- Mark idempotency requirements for mutation APIs.
+- Specify pagination/cursor strategy for list endpoints.
+- Clarify consistency guarantees per endpoint/workflow.
+
+### Data model and concurrency
+- Explicitly list partition key/index choices and why.
+- State optimistic vs pessimistic locking policy and conflict handling.
+- Define deduplication/idempotent-consumer strategy for async paths.
+
+### Reliability and operations
+- Add explicit failure scenarios with mitigations and degradation behavior.
+- Add monitoring/alert thresholds for critical flows and queue lag.
+- Document rollout and rollback steps for schema/API changes.
+
+### Validation checklist
+- Include unit + integration + load + failure-injection test cases for critical paths.
+
