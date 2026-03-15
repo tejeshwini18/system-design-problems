@@ -88,31 +88,3 @@ When designing any system, follow: **Step 1: Clarify Requirements** (functional/
 2. **HLD:** Identify components (services, queues, stores); assign responsibilities (SRP); define interfaces between them (DIP).
 3. **LLD:** Within a component, choose patterns (State for lifecycle, Strategy for algorithms, Observer for notify).
 4. **Mention:** SOLID when justifying single service responsibility, interfaces, and dependency injection.
-
----
-
-## Interview-Readiness Enhancements
-
-### Capacity & SLO framing
-- Define read/write QPS separately and estimate peak vs average traffic.
-- Add latency budgets (p95/p99) per critical hop and target availability.
-- State durability target and expected data growth/day.
-
-### Critical path clarity
-- Document write path (authoritative commit first, async side-effects second).
-- Document read path (cache/read model first, fallback to source of truth).
-- Identify likely hotspots (hot keys, hot partitions, fanout spikes).
-
-### Failure handling
-- Define retry strategy (bounded retries, backoff, jitter).
-- Add circuit breakers and bulkheads for unstable dependencies.
-- Cover queue failures (DLQ, replay) and datastore failover behavior.
-
-### Security, operations, and cost
-- Baseline security: AuthN/AuthZ, encryption in transit/at rest, secrets rotation.
-- Observability: golden signals, SLO alerts, tracing, runbooks, canary/rollback.
-- DR/cost: explicit RTO/RPO and top cost drivers with optimization levers.
-
-### Trade-off table (mandatory)
-- Include at least two realistic alternatives with decision rationale for this system.
-
