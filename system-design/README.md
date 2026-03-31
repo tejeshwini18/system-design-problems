@@ -111,7 +111,7 @@ Every design has both **HLD** and **LLD** (or README for 38).
 
 ---
 
-## Part 5: More System Designs (60–64)
+## Part 5: More System Designs (60–66)
 
 | # | System | HLD | LLD |
 |---|--------|-----|-----|
@@ -120,6 +120,7 @@ Every design has both **HLD** and **LLD** (or README for 38).
 | 62 | [Hotel Booking](62-hotel-booking/) | [HLD](62-hotel-booking/HLD.md) | [LLD](62-hotel-booking/LLD.md) |
 | 63 | [Food Delivery](63-food-delivery/) (Swiggy/Zomato) | [HLD](63-food-delivery/HLD.md) | [LLD](63-food-delivery/LLD.md) |
 | 64 | [LMS & Calendar](64-lms-calendar/) | [HLD](64-lms-calendar/HLD.md) | [LLD](64-lms-calendar/LLD.md) |
+| 66 | [User Authentication System](66-user-authentication-system/) | [HLD](66-user-authentication-system/HLD.md) | [LLD](66-user-authentication-system/LLD.md) |
 
 ---
 
